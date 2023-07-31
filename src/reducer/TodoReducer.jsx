@@ -1,43 +1,26 @@
-
-import { updateTodos, updateFilterTodos, updateStatus, updateEditTodo, updateInputText, updateDeleteTodo } from "../Actions";
+import { createTodoType } from "../Actions";
 
 const initialState={
-    todos : [],
+    todos: [],
     filterTodos: [],
-    status: "",
-    inputText: "",
-    editTodo: "",
+    filterStatus: "all",
 }
+const TodoReducer=(state=initialState, {type,payload})=>{
+    // console.log("state", state);
+    // console.log("type", type);
+    // console.log("payload", payload);
 
-const TodoReducer=(state=initialState, action)=>{
-    switch (action.type){
-        case updateInputText:
+    switch (type){
+        case createTodoType:
             return{
-
+                ...state,
+                todos: [...state.todos, payload],
+                filterTodos: todos,
             }
-        case updateTodos:
-            return{
+        }
+           
 
-            }
-        case updateFilterTodos:
-            return{
+ }
 
-            }
-        case updateStatus:
-            return{
-
-            }
-        case updateEditTodo:
-            return{
-
-            }
-        case updateDeleteTodo:
-            return{
-
-            }
-    }
-
-
-}
 
 export default TodoReducer;

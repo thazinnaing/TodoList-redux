@@ -1,4 +1,4 @@
-import { chooseSelectionType, createTodoType, deleteTodoType } from "../Actions";
+import { chooseSelectionType, completeTodoType, createTodoType, deleteTodoType } from "../Actions";
 
 const initialState={
     todos: [],
@@ -17,19 +17,32 @@ const TodoReducer=(state=initialState, action)=>{
                 todos: [...state.todos, action.payload],
              
             }
-            case chooseSelectionType:
+        case chooseSelectionType:
             return{
                 ...state,
                 filterStatus: action.payload
             }
-            case deleteTodoType:
-                const newTodos= state.todos?.filter(todo=>{
-                    todo.id !== action.payload
-                })
-                return{
-                    ...state,
-                    todos: newTodos
-                }
+        case deleteTodoType:
+            const newTodos= state.todos?.filter(todo=>{
+                todo.id !== action.payload
+            })
+            return{
+                ...state,
+                todos: newTodos
+            }
+        case completeTodoType:
+            return{
+                ...state,
+                todos:  (state.todos?.map(todo=>{
+                            if(todo.id == action.payload){
+                                !todo.completeTodo
+                            }
+                            return todo
+                            })
+                        )
+            }
+            
+
         }
     }    
 

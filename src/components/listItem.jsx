@@ -14,6 +14,10 @@ const ListItem=({todo})=>{
     const deleteHandler=()=>{
         dispatch(deleteTodo(todo.id))
     }
+
+    const completeTodoHandler=()=>{
+        dispatch(completeTodo(todo.id))
+    }
   
     return(
         <div className="todo">
@@ -27,7 +31,7 @@ const ListItem=({todo})=>{
 
                 <div className="tick">
                     <img src={`${todo.completeTodo? DoublecheckIcon : TickIcon}`} alt="tick"
-                    onClick={()=>{}}
+                    onClick={completeTodoHandler}
                     />
                 </div>
                 <div className="trash">

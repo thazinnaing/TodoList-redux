@@ -1,23 +1,29 @@
-import { createTodoType } from "../Actions";
+import { chooseSelectionType, createTodoType } from "../Actions";
 
 const initialState={
     todos: [],
     filterTodos: [],
     filterStatus: "all",
 }
-const TodoReducer=(state=initialState, {type,payload})=>{
+const TodoReducer=(state=initialState, action)=>{
     // console.log("state", state);
     // console.log("type", type);
     // console.log("payload", payload);
 
-    switch (type){
+    switch (action.type){
         case createTodoType:
             return{
                 ...state,
-                todos: [...state.todos, payload],
-                filterTodos: todos,
+                todos: [...state.todos, action.payload],
+             
+            }
+            case chooseSelectionType:
+            return{
+                ...state,
+                filterStatus: payload
             }
         }
+        
            
 
  }

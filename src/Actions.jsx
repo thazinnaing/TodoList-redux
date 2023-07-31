@@ -1,4 +1,5 @@
 export const createTodoType = "CREATE-TODO";
+export const chooseSelectionType = "chooseSelection"
 
 export const createTodo=(todo)=>{
     return{
@@ -6,4 +7,11 @@ export const createTodo=(todo)=>{
         payload: todo,
     }
     
+}
+export const chooseSelection =(chooseStatus)=>{
+    return{
+        type: chooseSelectionType,
+        payload: chooseStatus
+    }
+
 }

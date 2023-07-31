@@ -7,9 +7,14 @@ const Selectionbox=()=>{
 
     const dispatch=useDispatch();
 
+    const chooseSelection=(e)=>{
+        
+
+    }
+
     return(
         <select className="select"
-            onClick={()=>{}}
+            onClick={chooseSelection}
         >
             <option>All</option>
             <option>Completed</option>

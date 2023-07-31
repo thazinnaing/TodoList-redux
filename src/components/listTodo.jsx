@@ -2,13 +2,14 @@ import React from 'react';
 import "../css/list.css";
 import ListItem from './listItem';
 import Selectionbox from './selectionBox';
+
 import { useSelector } from 'react-redux';
 
 
 
 const ListTodo=()=>{
   const todos=useSelector(state=>state?.todos)
-  
+
   console.log("todos", todos);
 
     return(

@@ -17,8 +17,7 @@ const Form=()=>{
 
     const onChangeText=(e)=>{
         const input=e.target;
-        console.log(input.value);
-        setTaskTodo({...todo, task: input.value})
+        setTaskTodo({...todo, [input.name]: input.value})
         
     }
 

@@ -15,7 +15,7 @@ const ListItem=({todo})=>{
   
     return(
         <div className="todo">
-                <div>{todo.task}</div>
+                <div className="text">{todo.task}</div>
 
                 <div className="edit">
                     <img src={EditIcon} alt="edit"

@@ -8,7 +8,7 @@ export const createTodo=(todo)=>{
     }
     
 }
-export const chooseSelection =(chooseStatus)=>{
+export const chooseStatusSelection =(chooseStatus)=>{
     return{
         type: chooseSelectionType,
         payload: chooseStatus

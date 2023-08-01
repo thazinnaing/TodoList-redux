@@ -35,7 +35,7 @@ const TodoReducer=(state=initialState, action)=>{
                 ...state,
                 todos:  (state.todos?.map(todo=>{
                             if(todo.id == action.payload){
-                                !todo.completeTodo
+                                todo.completeTodo = !todo.completeTodo
                             }
                             return todo
                             })

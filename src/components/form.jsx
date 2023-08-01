@@ -7,7 +7,7 @@ import { createTodo } from '../Actions';
 const todo={
     task : "",
     completeTodo : false,
-    id: Math.random()*100,
+    id: "",
 }
 
 const Form=()=>{
@@ -17,11 +17,15 @@ const Form=()=>{
 
     const onChangeText=(e)=>{
         const input=e.target;
-        setTaskTodo({...todo, [input.name]: input.value})
+        setTaskTodo({...todo, 
+                    [input.name]: input.value,
+                    id: Math.random()*100,
+        })
         
     }
 
-    const onAddButtonClick=()=>{
+    const onAddButtonClick=(e)=>{
+        e.preventDefault();
         console.log(taskTodo)
         dispatch(createTodo(taskTodo))
     }

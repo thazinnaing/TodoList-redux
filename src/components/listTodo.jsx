@@ -24,7 +24,7 @@ const ListTodo=()=>{
         </div>
         <div className="selection">
 
-          {todos && <Selectionbox/>}
+          {todos.length !== 0 &&  <Selectionbox/>}
          
         </div>
       </div>

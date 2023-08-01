@@ -1,7 +1,7 @@
 import '../css/form.css';
 import BanIcon from '../svg/ban.svg';
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { createTodo } from '../Actions';
 
 const todo={
@@ -12,8 +12,16 @@ const todo={
 
 const Form=()=>{
     const dispatch= useDispatch();
+    const todos= useSelector(state=> state?.todos);
+    const editTodoId = useSelector(state=> state?.editTodoId);
+    
+    
     const [taskTodo, setTaskTodo]=useState(todo);
     console.log("tasktodo",taskTodo);
+
+    const edittodo= todos?.find(todo=> todo.id === editTodoId);
+    
+    
 
     const onChangeText=(e)=>{
         const input=e.target;

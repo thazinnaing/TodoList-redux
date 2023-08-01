@@ -6,7 +6,7 @@ import TrashIcon from "../svg/trash.svg";
 import DoublecheckIcon from "../svg/double-check.svg";
 import EditIcon from '../svg/edit.svg';
 import { useDispatch, useSelector } from "react-redux";
-import { deleteTodo, completeTodo} from "../Actions";
+import { deleteTodo, completeTodo, editTodo} from "../Actions";
 
 const ListItem=({todo})=>{
     const dispatch=useDispatch();
@@ -18,7 +18,10 @@ const ListItem=({todo})=>{
     const completeTodoHandler=()=>{
         dispatch(completeTodo(todo.id))
     }
-    console.log("completeTodo", todo.completeTodo);
+    
+    const editHandler=()=>{
+        dispatch(editTodo(todo.id))
+    }
   
     return(
         <div className="todo">
@@ -26,7 +29,7 @@ const ListItem=({todo})=>{
 
                 <div className="edit">
                     <img src={EditIcon} alt="edit"
-                    onClick={()=>{}}
+                    onClick={editHandler}
                     />
                 </div>
 

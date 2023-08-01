@@ -1,8 +1,9 @@
-import { chooseSelectionType, completeTodoType, createTodoType, deleteTodoType } from "../Actions";
+import { chooseSelectionType, completeTodoType, createTodoType, deleteTodoType, editTodoType } from "../Actions";
 
 const initialState={
     todos: [],
     filterTodos: [],
+    editTodoId: "",
     filterStatus: "all",
 }
 const TodoReducer=(state=initialState, action)=>{
@@ -43,6 +44,12 @@ const TodoReducer=(state=initialState, action)=>{
                             return todo
                             })
                         )
+            }
+
+        case editTodoType:
+            return{
+                ...state,
+                editTodoId: action.payload
             }
             
 

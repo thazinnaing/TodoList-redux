@@ -9,8 +9,7 @@ const Selectionbox=()=>{
     const dispatch=useDispatch();
 
     const chooseSelection=(e)=>{
-        const chooseStatus= e.targer.value;
-        dispatch(chooseStatusSelection(chooseStatus));
+        dispatch(chooseStatusSelection(e.target.value));
 
     }
 

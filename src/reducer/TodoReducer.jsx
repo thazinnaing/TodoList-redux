@@ -23,12 +23,15 @@ const TodoReducer=(state=initialState, action)=>{
                 filterStatus: action.payload
             }
         case deleteTodoType:
-            const newTodos= state.todos?.filter(todo=>{
-                todo.id !== action.payload
-            })
+
             return{
                 ...state,
-                todos: newTodos
+                todos: state.todos?.filter(todo=>{
+                    return(todo.id !== action.payload)
+                })
+                
+
+            
             }
         case completeTodoType:
             return{

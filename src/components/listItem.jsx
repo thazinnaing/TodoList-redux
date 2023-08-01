@@ -27,7 +27,7 @@ const ListItem=({todo})=>{
                 <div className="edit">
                     <img src={EditIcon} alt="edit"
                     onClick={()=>{}}
-                    />-
+                    />
                 </div>
 
                 <div className="tick">

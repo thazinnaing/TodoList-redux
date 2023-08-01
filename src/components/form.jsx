@@ -26,8 +26,9 @@ const Form=()=>{
 
     const onAddButtonClick=(e)=>{
         e.preventDefault();
-        console.log(taskTodo)
         dispatch(createTodo(taskTodo))
+        setTaskTodo({...todo})
+
     }
 
     const onBanButtonClick=()=>{

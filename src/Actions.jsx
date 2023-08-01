@@ -18,6 +18,7 @@ export const chooseStatusSelection =(chooseStatus)=>{
 }
 
 export const deleteTodo = (id)=>{
+   
     return{
         type: deleteTodoType,
         payload: id

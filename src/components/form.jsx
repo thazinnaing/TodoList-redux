@@ -1,6 +1,6 @@
 import '../css/form.css';
 import BanIcon from '../svg/ban.svg';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { createTodo } from '../Actions';
 
@@ -14,17 +14,30 @@ const Form=()=>{
     const dispatch= useDispatch();
     const todos= useSelector(state=> state?.todos);
     const editTodoId = useSelector(state=> state?.editTodoId);
-    
-    
+
     const [taskTodo, setTaskTodo]=useState(todo);
-    console.log("tasktodo",taskTodo);
+    const [editTodoObj, setEditTodoObj]= useState(todo);
 
-    const edittodo= todos?.find(todo=> todo.id === editTodoId);
+    
+    useEffect(()=>{
+
+        if (editTodoId !== 0){
+            const etodo = (todos?.find(item=> item.id === editTodoId));
+            setEditTodoObj({...todo,
+                        task: etodo?.task,
+                        id: etodo?.id});
+            setTaskTodo({...todo,
+                        task: etodo?.task,
+                     })
+        }
+    },[])
     
     
-
     const onChangeText=(e)=>{
         const input=e.target;
+        if(editTodoId !== 0){
+
+        }
         setTaskTodo({...todo, 
                     [input.name]: input.value,
                     id: Math.random()*100,
@@ -33,9 +46,16 @@ const Form=()=>{
     }
 
     const onAddButtonClick=(e)=>{
+
         e.preventDefault();
-        dispatch(createTodo(taskTodo))
-        setTaskTodo({...todo})
+        if (taskTodo?.task){
+            dispatch(createTodo(taskTodo))
+            setTaskTodo({...todo})
+        }
+        else{
+            setTaskTodo({...todo})
+        }
+        
 
     }
 
@@ -43,12 +63,17 @@ const Form=()=>{
         setTaskTodo({...todo})
 
     }
+    console.log("editTodoId", editTodoId);
+    console.log("tasktodo", taskTodo);
+    console.log("edittodoobj", editTodoObj);
+
+   
     
     return(
             <form>
                 <div className="input-container">
                 <div className="input-div">
-                    <input type='text' value={taskTodo.task} name = "task" placeholder='make a task'
+                    <input type='text'value={taskTodo.task} name = "task" placeholder='make a task'
                         onChange={onChangeText} 
                     />
                 </div>

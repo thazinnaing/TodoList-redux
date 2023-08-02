@@ -3,7 +3,7 @@ import { chooseSelectionType, completeTodoType, createTodoType, deleteTodoType, 
 const initialState={
     todos: [],
     filterTodos: [],
-    editTodoId: "",
+    editTodoId: 0,
     filterStatus: "all",
 }
 const TodoReducer=(state=initialState, action)=>{
